@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import styles from "./styles.module.css";
+import BASE_URL from '../../../server/config/config.js';
 
 const Main = () => {
     const [currency, setCurrency] = useState(0); // State to store user's currency
@@ -42,7 +43,7 @@ const Main = () => {
                 return;
             }
 
-            const { data } = await axios.get("http://localhost:5000/api/users/data", {
+            const { data } = await axios.get(`${BASE_URL}/api/users/data`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -70,7 +71,7 @@ const Main = () => {
             }
 
             const { data } = await axios.post(
-                "http://localhost:5000/api/users/update-currency",
+                `${BASE_URL}/api/users/update-currency`,
                 { amount: 1 },
                 {
                     headers: {
@@ -173,7 +174,7 @@ const Main = () => {
             if (!token) return;
 
             const { data } = await axios.post(
-                "http://localhost:5000/api/users/add-cat",
+                `${BASE_URL}/api/users/add-cat`,
                 { newCat, currencyCost: 25 },
                 {
                     headers: { Authorization: `Bearer ${token}` },
@@ -206,7 +207,7 @@ const Main = () => {
             if (!token) return;
 
             const { data } = await axios.post(
-                "http://localhost:5000/api/users/select-avatar",
+                `${BASE_URL}/api/users/select-avatar`,
                 { avatar: cat },
                 {
                     headers: { Authorization: `Bearer ${token}` },

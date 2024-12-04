@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
+import BASE_URL from '../../../server/config/config.js';
 
 const Login = () => {
 	const [data, setData] = useState({
@@ -18,7 +19,7 @@ const Login = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "http://localhost:5000/api/auth";
+			const url = BASE_URL;
 			const { data: res } = await axios.post(url, data);
 			localStorage.setItem("token", res.data);
 
