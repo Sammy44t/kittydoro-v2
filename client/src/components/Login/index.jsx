@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
-import BASE_URL from '../../../server/config/config.js';
+import BASE_URL from '../../config.js';
 
 const Login = () => {
 	const [data, setData] = useState({
