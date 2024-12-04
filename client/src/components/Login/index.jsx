@@ -19,7 +19,7 @@ const Login = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = BASE_URL;
+			const url = `${BASE_URL}/api/auth`;
 			const { data: res } = await axios.post(url, data);
 			localStorage.setItem("token", res.data);
 
