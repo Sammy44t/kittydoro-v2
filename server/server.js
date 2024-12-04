@@ -14,11 +14,7 @@ connectDB();
 
 // middleware
 app.use(express.json());
-const corsOptions = {
-    origin: process.env.FRONTEND_URL || 'http://localhost:5000',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-};
-app.use(cors(corsOptions));
+app.use(cors());
 
 // routes
 app.use("/api/users", userRoutes);
